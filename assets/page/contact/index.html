@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/logo/logo.png" type="image/x-icon" />
+    <title>E-Store</title>
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <!-- aos -->
+    <link rel="stylesheet" href="vendor/aos/aos.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="/assets/css/script.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+    <!-- dark mode  -->
+    <i class="bi bi-brightness-high-fill" id="scroll-to-top"></i>
+    <!--// dark mode  //-->
+
+    <!-- scroll -->
+    <i class="fa-solid fa-circle-up" id="scroll-to-top-button"></i>
+    <!--// scroll //-->
+
+
+    <!-- --header section design---->
+    <header>
+        <div id="menu-bar" class="fas fa-bars" onclick="showmenu()"></div>
+        <a href="" class="logo"><span>E</span>-<span>S</span>tore</a>
+        <nav class="navbar">
+            <a href="/index.html">home</a>
+            <a href="/assets/page/about/index.html">About</a>
+            <a href="/assets/page/shop/index.html">Shop</a>
+            <a href="/assets/page/blog/index.html">Blog</a>
+            <a href="/assets/page/contact/index.html" class="active">contact</a>
+        </nav>
+        <div class="icon">
+            <i class="fas fa-search" onclick="showbar()" id="search-btn"></i>
+            <i class="fas fa-user" onclick="showform()"></i>
+            <i class="ri-shopping-cart-line"><span>2</span></i>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" id="search-bar" placeholder="What you looking for...">
+            <label for="search-bar" class="fas fa-search"></label>
+        </form>
+    </header>
+
+    <div class="login-form">
+        <i class="fas fa-times" id="form-close" onclick="hideform()"></i>
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="Enter your email">
+            <input type="password" class="box" placeholder="Enter your password">
+            <input type="submit" value="login now" class="btn">
+            <input type="checkbox" id="remember">
+            <label for="remmember"> remember me</label>
+            <p>forget password? <a href="index.html">click here</a></p>
+            <p>don't have account? <a href="assets/sginup.html">sign up</a></p>
+        </form>
+    </div>
+    <!-------------------------------------------------------------------------------->
+
+
+    <div class="container">
+        <div class="content">
+            <div class="left-side">
+                <div class="address details">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="topic">Address</div>
+                    <div class="text-one">Surkhet, NP12</div>
+                    <div class="text-two">Birendranagar 06</div>
+                </div>
+                <div class="phone details">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="topic">Phone</div>
+                    <div class="text-one">+0098 9893 5647</div>
+                    <div class="text-two">+0096 3434 5678</div>
+                </div>
+                <div class="email details">
+                    <i class="fas fa-envelope"></i>
+                    <div class="topic">Email</div>
+                    <div class="text-one">codinglab@gmail.com</div>
+                    <div class="text-two">info.codinglab@gmail.com</div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="topic-text">Send us a message</div>
+                <p>If you have any work from me or any types of quries related to my tutorial, you can send me message
+                    from here. It's my pleasure to help you.</p>
+                <form action="#">
+                    <div class="input-box">
+                        <input type="text" placeholder="Enter your Name:" id="name">
+                    </div>
+                    <div class="input-box">
+                        <input type="text" placeholder="Enter your Email:" id="email">
+                    </div>
+                    <div class="input-box message-box">
+                        <textarea name="" id="message" cols="31" rows="4"
+                            placeholder="Enter your message...."></textarea>
+                    </div>
+                    <div class="button">
+                        <button type="button" onclick="if(formValidation()) SendEmail()">Send Email</button>
+                        <div id="error">
+                            <span class="error-message"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- End of map -->
+    <div class="map-all">
+        <h1>Google Maps Example</h1>
+        <div id="map"></div>
+    </div>
+    
+
+
+
+
+    <!--
+        - FOOTER
+    -->
+    <footer>
+        <div class="content">
+            <div class="top">
+                <div class="logo-details">
+                    <i class="fab fa-slack"></i>
+                    <span>E</span>-<span>Store</span>
+                </div>
+                <div class="media-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="link-boxes">
+                <ul class="box">
+                    <li class="link_name">CATEGORIES</li>
+                    <li><a href="#">Fashion</a></li>
+                    <li><a href="#">Fashion</a></li>
+                    <li><a href="#">Cosmetic</a></li>
+                    <li><a href="#">Health</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">PRODUCTS</li>
+                    <li><a href="#">Prices Drop</a></li>
+                    <li><a href="#">New Products</a></li>
+                    <li><a href="#">Best Sales</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">SERVICES</li>
+                    <li><a href="#">Prices Drop</a></li>
+                    <li><a href="#">New Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Best Sales</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">CONTACT</li>
+                    <li><a href="#">Cairo , Egypt</a></li>
+                    <li><a href="#">111-386-012-6</a></li>
+                    <li><a href="#">Dev.ali@Gmail.Com</a></li>
+                </ul>
+                <ul class="box input-box">
+                    <li class="link_name">Subscribe</li>
+                    <li><input type="text" placeholder="Enter your email"></li>
+                    <li><input type="button" value="Subscribe"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-details">
+            <div class="bottom_text">
+                <span class="copyright_text">Copyright © 2021 <a href="#">CodingLab.</a>All rights reserved</span>
+                <span class="policy_terms">
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Terms & condition</a>
+                </span>
+            </div>
+        </div>
+        <div class="foot">
+
+            <img src="/assets/images/payment.png" alt="payment method" class="payment-img">
+
+            <p class="copyright">
+                Copyright &copy; <a href="#">Ahmed Sami</a> all rights reserved.
+            </p>
+
+    </footer>
+
+    <!--
+        - FOOTER
+    -->
+
+
+
+
+
+
+
+
+
+
+    <!-- End of map -->
+    <script>
+        function initMap() {
+            // تحديد الإعدادات المطلوبة للخريطة
+            var options = {
+                center: { lat: 40.712776, lng: -74.005974 },
+                zoom: 12,
+                mapTypeId: 'roadmap'
+            };
+
+            // إنشاء الخريطة
+            var map = new google.maps.Map(document.getElementById('map'), options);
+
+            // إضافة علامة على الخريطة
+            var marker = new google.maps.Marker({
+                position: { lat: 40.712776, lng: -74.005974 },
+                map: map,
+                title: 'New York City'
+            });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCwZ2gk-3RNkzs0EIk733FEPf2d8ow7Wpw&callback=initMap"
+        async defer></script>
+    <!--// End of map //-->
+
+
+    <!-- smtp js -->
+
+    <script src="https://smtpjs.com/v3/smtp.js"> </script>
+    <script>
+        function SendEmail() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            let body = "Name:" + name + "<br/> Email:" + email + "<br/> Contact Number:" + "<br/> Messages:" + message;
+
+            Email.send({
+                SecureToken: "5c0e06af-1e46-4087-82a3-7a6e9167aa3c",
+                To: "asn31661@gmail.com",
+                From: "asn31661@gmail.com",
+                Subject: "message From Contact Form",
+                Body: body
+            }).then(
+                message => alert(message)
+            );
+
+
+        }
+    </script>
+
+    <!--
+    - ionIcon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- bootstrap -->
+    <script src="vendor/bootstrap/js/bootstrap.js"></script>
+    <!-- aos -->
+    <script src="vendor/aos/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1500,
+        });
+    </script>
+    <!-- Custom Script -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/logo/logo.png" type="image/x-icon" />
+    <title>sign up</title>
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+    <!-- aos -->
+    <link rel="stylesheet" href="vendor/aos/aos.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <!-- StyleSheet -->
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+    <div class="container">
+        <header>sign up</header>
+        <form action="">
+            <div class="field email-field">
+                <div class="input-field">
+                    <input type="email" placeholder="Enter your email" class="email" />
+                </div>
+                <span class="error email-error">
+                    <i class="bx bx-error-circle error-icon"></i>
+                    <p class="error-text">Please enter a valid email</p>
+                </span>
+            </div>
+            <div class="field create-password">
+                <div class="input-field">
+                    <input type="password" placeholder="Create password" class="password" />
+                    <i class="bx bx-hide show-hide"></i>
+                </div>
+                <span class="error password-error">
+                    <i class="bx bx-error-circle error-icon"></i>
+                    <p class="error-text">
+                        Please enter atleast 8 charatcer with number, symbol, small and
+                        capital letter.
+                    </p>
+                </span>
+            </div>
+            <div class="field confirm-password">
+                <div class="input-field">
+                    <input type="password" placeholder="Confirm password" class="cPassword" />
+                    <i class="bx bx-hide show-hide"></i>
+                </div>
+                <span class="error cPassword-error">
+                    <i class="bx bx-error-circle error-icon"></i>
+                    <p class="error-text">Password don't match</p>
+                </span>
+            </div>
+            <div class="input-field button">
+                <input type="submit" value="sign up" />
+            </div>
+            <div class="have-account">
+                <p class="signIn">already have an account?</p><a href="/assets/page/shop/index.html">sign in</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

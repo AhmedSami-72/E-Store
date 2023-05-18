@@ -1,0 +1,190 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:600&display=swap');
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    text-decoration: none;
+    list-style: none;
+    text-decoration: none;
+    transition: all .5s linear;
+}
+
+/*-----------------------------------*\
+    #RESET
+  \*-----------------------------------*/
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+button {
+    background: none;
+    font: inherit;
+    border: none;
+    cursor: pointer;
+}
+
+ion-icon {
+    display: block;
+}
+
+/* /*-----------------------------------*\ */
+body {
+    color: var(--text-color);
+    background: var(--bg-color);
+}
+
+/* 1rem = 16px => 10px */
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+    overflow-x: hidden;
+
+}
+
+/* #CUSTOM PROPERTY */
+:root {
+
+    /**
+     * colors
+     */
+    --bg-color: #ffffff;
+    --text-color: #0f172a;
+    --main-color: #6b7280;
+    --other-color: #334155;
+    --white: #fff;
+    --black: #222;
+    --pink: #f60091;
+    --grey: #444;
+    --grey2: #959595;
+    --blue: #0080ff;
+    --grey-alt: #d1e2e9;
+    --yellow: #ffd800;
+    --green: #59b210;
+    --spanish-gray: hsl(0, 0%, 60%);
+    --sonic-silver: hsl(0, 0%, 47%);
+    --eerie-black: hsl(0, 0%, 13%);
+    --salmon-pink: hsl(353, 100%, 78%);
+    --sandy-brown: hsl(29, 90%, 65%);
+    --bittersweet: hsl(0, 100%, 70%);
+    --ocean-green: hsl(152, 51%, 52%);
+    --cultured: hsl(0, 0%, 93%);
+    --white: hsl(0, 100%, 100%);
+    --onyx: hsl(0, 0%, 27%);
+    --big-font: 4rem;
+    --h2-font: 2.5rem;
+    --p-font: 1rem;
+
+
+    /* typography */
+
+    --fs-1: 1.563rem;
+    --fs-2: 1.375rem;
+    --fs-3: 1.25rem;
+    --fs-4: 1.125rem;
+    --fs-5: 1rem;
+    --fs-6: 0.938rem;
+    --fs-7: 0.875rem;
+    --fs-8: 0.813rem;
+    --fs-9: 0.75rem;
+    --fs-10: 0.688rem;
+    --fs-11: 0.625rem;
+
+    --weight-300: 300;
+    --weight-400: 400;
+    --weight-500: 500;
+    --weight-600: 600;
+    --weight-700: 700;
+
+    /**
+     * border-radius
+     */
+
+    --border-radius-md: 10px;
+    --border-radius-sm: 5px;
+
+    /**
+     * transition 
+     */
+    --transition-timing: 0.2s ease;
+}
+
+/*-----------------------------------*\
+
+
+
+/* dark mode */
+#scroll-to-top {
+    position: fixed;
+    bottom: 0px;
+    transform: translate(0px,-180px);
+    left: 0;
+    font-size: 2rem;
+    z-index: 1111;
+    margin-left: 20px;
+    background-color: #28cbe0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 13px 14px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#scroll-to-top:hover {
+    opacity: 1;
+}
+
+
+
+
+.light{
+    color: white;
+}
+
+
+
+/*// dark mode //*/
+
+
+/* scroll */
+#scroll-to-top-button {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    transform: translate(0px,-180px);
+    z-index: 999;
+    right: 0px;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #179196;
+    font-size: 5rem;
+    border-radius: 50%;
+    opacity: 0.5;
+    transition: opacity 0.2s ease-in-out;
+}
+
+
+#scroll-to-top-button:hover {
+    opacity: 1;
+}
+
+
+/*// scroll //*/
+

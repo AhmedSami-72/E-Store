@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Our Blog - Clothing Store</title>
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="assets/images/logo/logo.png" type="image/x-icon" />
+        <title>E-Store</title>
+        <!-- font-awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+            integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- bootstrap -->
+        <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+        <!-- aos -->
+        <link rel="stylesheet" href="vendor/aos/aos.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        <!-- StyleSheet -->
+        <link rel="stylesheet" href="/assets/css/script.css" />
+        <link rel="stylesheet" href="/assets/css/style.css" />
+        <link rel="stylesheet" href="style.css" />
+
+    
+</head>
+
+<body>
+    <!-- dark mode  -->
+    <i class="bi bi-brightness-high-fill" id="scroll-to-top"></i>
+    <!--// dark mode  //-->
+
+    <!-- scroll -->
+    <i class="fa-solid fa-circle-up" id="scroll-to-top-button"></i>
+    <!--// scroll //-->
+
+
+    <!-- --header section design---->
+    <header>
+        <div id="menu-bar" class="fas fa-bars" onclick="showmenu()"></div>
+        <a href="" class="logo"><span>E</span>-<span>S</span>tore</a>
+        <nav class="navbar">
+            <a href="/index.html">home</a>
+            <a href="/assets/page/about/index.html">About</a>
+            <a href="/assets/page/shop/index.html">Shop</a>
+            <a href="/assets/page/blog/index.html" class="active">Blog</a>
+            <a href="/assets/page/contact/index.html">contact</a>
+        </nav>
+        <div class="icon">
+            <i class="fas fa-search" onclick="showbar()" id="search-btn"></i>
+            <i class="fas fa-user" onclick="showform()"></i>
+            <i class="ri-shopping-cart-line"><span>2</span></i>
+        </div>
+        <form action="" class="search-form">
+            <input type="search" id="search-bar" placeholder="What you looking for...">
+            <label for="search-bar" class="fas fa-search"></label>
+        </form>
+    </header>
+
+    <div class="login-form">
+        <i class="fas fa-times" id="form-close" onclick="hideform()"></i>
+        <form action="">
+            <h3>login</h3>
+            <input type="email" class="box" placeholder="Enter your email">
+            <input type="password" class="box" placeholder="Enter your password">
+            <input type="submit" value="login now" class="btn">
+            <input type="checkbox" id="remember">
+            <label for="remmember"> remember me</label>
+            <p>forget password? <a href="index.html">click here</a></p>
+            <p>don't have account? <a href="assets/sginup.html">sign up</a></p>
+        </form>
+    </div>
+    <!-------------------------------------------------------------------------------->
+
+
+    <main class="blog">
+        <section class="recent-posts">
+            <h2>Recent Posts</h2>
+            <ul>
+                <li><a href="#">10 Tips for Choosing the Perfect Jeans</a></li>
+                <li><a href="#">The Latest Fashion Trends for Summer</a></li>
+                <li><a href="#">Best Ways to Care for Your Summer Clothes</a></li>
+            </ul>
+        </section>
+
+        <section class="blog-categories">
+            <h2>Blog Categories</h2>
+            <ul>
+                <li><a href="#">Fashion Tips</a></li>
+                <li><a href="#">Latest Fashion Trends</a></li>
+                <li><a href="#">Sales and Discounts</a></li>
+            </ul>
+        </section>
+
+        <section class="blog-posts">
+            <h2>10 Tips for Choosing the Perfect Jeans</h2>
+            <img src="/assets/images/electronics-banner-1.jpg" alt="Jeans">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id enim sed ante tincidunt vestibulum nec in
+                arcu. Sed pellentesque ipsum eu vulputate blandit. Ut sed ex eu tellus facilisis feugiat. Duis vel
+                vehicula ante. Sed non congue eros. Donec vel elit sit amet dolor aliquam accumsan. Ut vel risus
+                euismod, volutpat enim at, aliquet ipsum. Aliquam ut est in urna interdum scelerisque. Aliquam erat
+                volutpat. Integer nec risus at lacus aliquam facilisis. In hac habitasse platea dictumst. Mauris vel
+                diam euismod, blandit dui sed, fermentum nunc.</p>
+            <p>Sed id enim sed ante tincidunt vestibulum nec in arcu. Sed pellentesque ipsum eu vulputate blandit. Ut
+                sed ex eu tellus facilisis feugiat. Duis vel vehicula ante. Sed non congue eros. Donec vel elit sit amet
+                dolor aliquam accumsan. Ut vel risus euismod, volutpat enim at, aliquet ipsum. Aliquam ut est in urna
+                interdum scelerisque. Aliquam erat volutpat. Integer nec risus at lacus aliquam facilisis. In hac
+                habitasse platea dictumst. Mauris vel diam euismod, blandit dui sed, fermentum nunc.</p>
+        </section>
+
+        <section class="blog-posts">
+            <h2>The Latest Fashion Trends for Summer</h2>
+            <img src="/assets/images/electronics-banner-1.jpg" alt="Summer Fashion">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id enim sed ante tincidunt vestibulum nec in
+                arcu. Sed pellentesque ipsum eu vulputate blandit. Ut sed ex eu tellus facilisis feugiat. Duis vel
+                vehicula ante. Sed non congue eros. Donec vel elit sit amet dolor aliquam accumsan. Ut vel risus
+                euismod, volutpat enim at, aliquet ipsum. Aliquam ut est in urna interdum scelerisque. Aliquam erat
+                volutpat. Integer nec risus at lacus aliquam facilisis. In hac habitasse platea dictumst. Mauris vel
+                diam euismod, blandit dui sed, fermentum nunc.</p>
+            <p>Sed id enim sed ante tincidunt vestibulum nec in arcu. Sed pellentesque ipsum eu vulputate blandit. Ut
+                sed ex eu tellus facilisis feugiat. Duis vel vehicula ante. Sed non congue eros. Donec vel elit sit amet
+                dolor aliquam accumsan. Ut vel risus euismod, volutpat enim at, aliquet ipsum. Aliquam ut est in urna
+                interdum scelerisque. Aliquam erat volutpat. Integer nec risus at lacus aliquam facilisis. In hac
+                habitasse platea dictumst. Mauris vel diam euismod, blandit dui sed, fermentum nunc.</p>
+        </section>
+    </main>
+
+    <!--
+        - FOOTER
+    -->
+    <footer>
+        <div class="content">
+            <div class="top">
+                <div class="logo-details">
+                    <i class="fab fa-slack"></i>
+                    <span>E</span>-<span>Store</span>
+                </div>
+                <div class="media-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="link-boxes">
+                <ul class="box">
+                    <li class="link_name">CATEGORIES</li>
+                    <li><a href="#">Fashion</a></li>
+                    <li><a href="#">Fashion</a></li>
+                    <li><a href="#">Cosmetic</a></li>
+                    <li><a href="#">Health</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">PRODUCTS</li>
+                    <li><a href="#">Prices Drop</a></li>
+                    <li><a href="#">New Products</a></li>
+                    <li><a href="#">Best Sales</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">SERVICES</li>
+                    <li><a href="#">Prices Drop</a></li>
+                    <li><a href="#">New Products</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Best Sales</a></li>
+                </ul>
+                <ul class="box">
+                    <li class="link_name">CONTACT</li>
+                    <li><a href="#">Cairo , Egypt</a></li>
+                    <li><a href="#">111-386-012-6</a></li>
+                    <li><a href="#">Dev.ali@Gmail.Com</a></li>
+                </ul>
+                <ul class="box input-box">
+                    <li class="link_name">Subscribe</li>
+                    <li><input type="text" placeholder="Enter your email"></li>
+                    <li><input type="button" value="Subscribe"></li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-details">
+            <div class="bottom_text">
+                <span class="copyright_text">Copyright © 2021 <a href="#">CodingLab.</a>All rights reserved</span>
+                <span class="policy_terms">
+                    <a href="#">Privacy policy</a>
+                    <a href="#">Terms & condition</a>
+                </span>
+            </div>
+        </div>
+        <div class="foot">
+
+            <img src="/assets/images/payment.png" alt="payment method" class="payment-img">
+
+            <p class="copyright">
+                Copyright &copy; <a href="#">Ahmed Sami</a> all rights reserved.
+            </p>
+    </footer>
+    <!--
+        - FOOTER
+    -->
+
+    <!--
+    - ionIcon link
+    -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- bootstrap -->
+    <script src="vendor/bootstrap/js/bootstrap.js"></script>
+    <!-- aos -->
+    <script src="vendor/aos/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1500,
+        });
+    </script>
+    <!-- Custom Script -->
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/script.js"></script>
+</body>
+
+</html>
