@@ -66,8 +66,9 @@ form.addEventListener("submit", (e) => {
         !passField.classList.contains("invalid") &&
         !cPassField.classList.contains("invalid")
     ) {
-        location.href = form.getAttribute("action");
+        window.location.href = "/assets/page/shop/index.html";
     }
+    
 });
 
 
