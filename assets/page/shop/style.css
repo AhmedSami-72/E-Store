@@ -51,6 +51,7 @@ body{
     width: 100%;
     display: block;
     border-radius: 10px;
+    border: #0076b610 1px solid;
 }
 
 .box .images .img-holder.active {
@@ -108,6 +109,7 @@ body{
 
 .box .description .features {
     list-style: none;
+    font-size: 11px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -116,6 +118,8 @@ body{
 
 .box .description .features i {
     margin-right: 5px;
+    font-size: 13px;
+
 }
 
 .box .description .features .fa-circle-check {
@@ -129,6 +133,8 @@ body{
 .box .description .social {
     list-style: none;
     display: flex;
+    font-size: 15px;
+
 }
 
 .box .description .social a {

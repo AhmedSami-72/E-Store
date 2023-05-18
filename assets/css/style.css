@@ -16,7 +16,7 @@ header {
 }
 
 header.sticky {
-    background: rgba(233, 233, 233, 0.836);
+    background: rgb(255, 255, 255);
     padding: 14px 3%;
 }
 
@@ -831,15 +831,17 @@ span {
 
 /* add to card */
 main.products {
-    width: 95%;
+    width: 100%;
     margin: 0px auto 50px auto;
     padding: 5px;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
     flex-wrap: wrap;
 }
 
 
-h2.h_2{
+h2.h_2 {
     text-align: start;
     margin-left: 60px;
 }
@@ -852,13 +854,14 @@ section.product {
     outline: none;
     border: none;
     flex-grow: 1;
-    max-width: 250px;
+    height: auto;
+    max-width: 300px;
 }
 
 section.product img {
     max-width: 100%;
     margin-bottom: 10px;
-    width: 160px;
+    width: 170px;
     margin-left: auto;
     margin-right: auto;
     object-fit: cover;
@@ -880,7 +883,7 @@ section.product p {
 }
 
 section.product button.add-to-cart {
-    background-color:#ff8f9cb4;
+    background-color: rgba(0, 128, 0, 0.541);
     color: #fff;
     font-size: 15px;
     padding: 10px 0px !important;
@@ -889,7 +892,7 @@ section.product button.add-to-cart {
     cursor: pointer;
 }
 
-section.product button.add-to-cart:hover{
+section.product button.add-to-cart:hover {
     opacity: .6;
 }
 
@@ -952,7 +955,7 @@ aside.cart ul li button.remove-item:hover {
     letter-spacing: .5px;
 }
 
-aside .done{
+aside .done {
     margin-top: 100px;
     background: var(--blue) !important;
     color: #fff;
@@ -965,7 +968,7 @@ aside .done{
     font-size: 1rem;
 }
 
-aside .done:hover{
+aside .done:hover {
     background-color: #0f4efd;
     letter-spacing: .5px;
 }
@@ -985,31 +988,13 @@ aside.cart.open {
     right: 0;
 }
 
+@media only screen and(max-height:600px) {
+    .content {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 

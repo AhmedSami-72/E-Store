@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
+    text-align: center;
 }
 
 
@@ -24,14 +25,14 @@
 }
 
 .text h2 {
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 600;
     margin-bottom: 10px;
 
 }
 
 .text h5 {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500;
     margin-bottom: 20px;
 }
@@ -41,7 +42,7 @@ span {
 }
 
 .text p {
-    font-size: 18px;
+    font-size: 15px;
     line-height: 25px;
     letter-spacing: 1px;
 }
