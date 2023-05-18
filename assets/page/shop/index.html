@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="/assets/css/script.css">
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link rel="stylesheet" href="style.css" />
-
 </head>
 
 <body>
@@ -50,7 +49,6 @@
             <i class="fas fa-search" onclick="showbar()" id="search-btn"></i>
             <i class="fas fa-user" onclick="showform()"></i>
             <i class="ri-shopping-cart-line cart-icon" <a href="#"><span class="cart-count">0</span></a></i>
-            <!-- <li class="cart-icon"><a href="#">Cart<span class="cart-count">0</span></a></li> -->
         </div>
         <!--   end of cart modal -->
         <form action="" class="search-form">
@@ -59,187 +57,706 @@
         </form>
     </header>
 
-    <div class="login-form">
-        <i class="fas fa-times" id="form-close" onclick="hideform()"></i>
-        <form action="">
-            <h3>login</h3>
-            <input type="email" class="box" placeholder="Enter your email">
-            <input type="password" class="box" placeholder="Enter your password">
-            <input type="submit" value="login now" class="btn">
-            <input type="checkbox" id="remember">
-            <label for="remmember"> remember me</label>
-            <p>forget password? <a href="index.html">click here</a></p>
-            <p>don't have account? <a href="assets/page/sign up/sginup.html">sign up</a></p>
-        </form>
-    </div>
-    <!-------------------------------------------------------------------------------->
-
-    <!-- partial:index.partial.html -->
-    <div class="wrapper" id="app">
-        <div class="card-form">
-            <div class="card-list">
-                <div class="card-item" v-bind:class="{ '-active' : isCardFlipped }">
-                    <div class="card-item__side -front">
-                        <div class="card-item__focus" v-bind:class="{'-active' : focusElementStyle }"
-                            v-bind:style="focusElementStyle" ref="focusElement"></div>
-                        <div class="card-item__cover">
-                            <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'"
-                                class="card-item__bg">
-                        </div>
-
-                        <div class="card-item__wrapper">
-                            <div class="card-item__top">
-                                <img src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png"
-                                    class="card-item__chip">
-                                <div class="card-item__type">
-                                    <transition name="slide-fade-up">
-                                        <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
-                                            v-if="getCardType" v-bind:key="getCardType" alt=""
-                                            class="card-item__typeImg">
-                                    </transition>
-                                </div>
-                            </div>
-                            <label for="cardNumber" class="card-item__number" ref="cardNumber">
-                                <template v-if="getCardType === 'amex'">
-                                    <span v-for="(n, $index) in amexCardMask" :key="$index">
-                                        <transition name="slide-fade-up">
-                                            <div class="card-item__numberItem"
-                                                v-if="$index > 4 && $index < 14 && cardNumber.length > $index && n.trim() !== ''">
-                                                *</div>
-                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }"
-                                                :key="$index" v-else-if="cardNumber.length > $index">
-                                                {{cardNumber[$index]}}
-                                            </div>
-                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }"
-                                                v-else :key="$index + 1">{{n}}</div>
-                                        </transition>
-                                    </span>
-                                </template>
-
-                                <template v-else>
-                                    <span v-for="(n, $index) in otherCardMask" :key="$index">
-                                        <transition name="slide-fade-up">
-                                            <div class="card-item__numberItem"
-                                                v-if="$index > 4 && $index < 15 && cardNumber.length > $index && n.trim() !== ''">
-                                                *</div>
-                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }"
-                                                :key="$index" v-else-if="cardNumber.length > $index">
-                                                {{cardNumber[$index]}}
-                                            </div>
-                                            <div class="card-item__numberItem" :class="{ '-active' : n.trim() === '' }"
-                                                v-else :key="$index + 1">{{n}}</div>
-                                        </transition>
-                                    </span>
-                                </template>
-                            </label>
-                            <div class="card-item__content">
-                                <label for="cardName" class="card-item__info" ref="cardName">
-                                    <div class="card-item__holder">Card Holder</div>
-                                    <transition name="slide-fade-up">
-                                        <div class="card-item__name" v-if="cardName.length" key="1">
-                                            <transition-group name="slide-fade-right">
-                                                <span class="card-item__nameItem"
-                                                    v-for="(n, $index) in cardName.replace(/\s\s+/g, ' ')"
-                                                    v-if="$index === $index" v-bind:key="$index + 1">{{n}}</span>
-                                            </transition-group>
-                                        </div>
-                                        <div class="card-item__name" v-else key="2">Full Name</div>
-                                    </transition>
-                                </label>
-                                <div class="card-item__date" ref="cardDate">
-                                    <label for="cardMonth" class="card-item__dateTitle">Expires</label>
-                                    <label for="cardMonth" class="card-item__dateItem">
-                                        <transition name="slide-fade-up">
-                                            <span v-if="cardMonth" v-bind:key="cardMonth">{{cardMonth}}</span>
-                                            <span v-else key="2">MM</span>
-                                        </transition>
-                                    </label>
-                                    /
-                                    <label for="cardYear" class="card-item__dateItem">
-                                        <transition name="slide-fade-up">
-                                            <span v-if="cardYear"
-                                                v-bind:key="cardYear">{{String(cardYear).slice(2,4)}}</span>
-                                            <span v-else key="2">YY</span>
-                                        </transition>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-item__side -back">
-                        <div class="card-item__cover">
-                            <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + currentCardBackground + '.jpeg'"
-                                class="card-item__bg">
-                        </div>
-                        <div class="card-item__band"></div>
-                        <div class="card-item__cvv">
-                            <div class="card-item__cvvTitle">CVV</div>
-                            <div class="card-item__cvvBand">
-                                <span v-for="(n, $index) in cardCvv" :key="$index">
-                                    *
-                                </span>
-
-                            </div>
-                            <div class="card-item__type">
-                                <img v-bind:src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + getCardType + '.png'"
-                                    v-if="getCardType" class="card-item__typeImg">
-                            </div>
-                        </div>
-                    </div>
+    <!--
+            main pro  
+    -->
+    <div class="container">
+        <div class="box">
+            <div class="images">
+                <div class="img-holder active">
+                    <img src="/assets/images/cat1.jpg">
+                </div>
+                <div class="img-holder">
+                    <img src="/assets/images/cat1.jpg">
+                </div>
+                <div class="img-holder">
+                    <img src="/assets/images/cat1.jpg">
+                </div>
+                <div class="img-holder">
+                    <img src="/assets/images/cta-banner.jpg">
                 </div>
             </div>
-            <div class="card-form__inner">
-                <div class="card-input">
-                    <label for="cardNumber" class="card-input__label">Card Number</label>
-                    <input type="text" id="cardNumber" class="card-input__input" v-mask="generateCardNumberMask"
-                        v-model="cardNumber" v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardNumber"
-                        autocomplete="off">
+            <div class="basic-info">
+                <h1>Headphone</h1>
+                <div class="rate">
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
                 </div>
-                <div class="card-input">
-                    <label for="cardName" class="card-input__label">Card Holders</label>
-                    <input type="text" id="cardName" class="card-input__input" v-model="cardName"
-                        v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardName" autocomplete="off">
+                <span>$250</span>
+                <div class="options">
+                    <a href="/assets/page/paying off/index.html">Buy It Now</a>
+                    <!-- <a href="#">Add to Cart</a> -->
                 </div>
-                <div class="card-form__row">
-                    <div class="card-form__col">
-                        <div class="card-form__group">
-                            <label for="cardMonth" class="card-input__label">Expiration Date</label>
-                            <select class="card-input__input -select" id="cardMonth" v-model="cardMonth"
-                                v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
-                                <option value="" disabled selected>Month</option>
-                                <option v-bind:value="n < 10 ? '0' + n : n" v-for="n in 12"
-                                    v-bind:disabled="n < minCardMonth" v-bind:key="n">
-                                    {{n < 10 ? '0' + n : n}} </option>
-                            </select>
-                            <select class="card-input__input -select" id="cardYear" v-model="cardYear"
-                                v-on:focus="focusInput" v-on:blur="blurInput" data-ref="cardDate">
-                                <option value="" disabled selected>Year</option>
-                                <option v-bind:value="$index + minCardYear" v-for="(n, $index) in 12" v-bind:key="n">
-                                    {{$index + minCardYear}}
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="card-form__col -cvv">
-                        <div class="card-input">
-                            <label for="cardCvv" class="card-input__label">CVV</label>
-                            <input type="text" class="card-input__input" id="cardCvv" v-mask="'####'" maxlength="4"
-                                v-model="cardCvv" v-on:focus="flipCard(true)" v-on:blur="flipCard(false)"
-                                autocomplete="off">
-                        </div>
-                    </div>
-                </div>
-                <a href="/assets/page/Checkout.html">
-                    <button class="card-form__button">
-                        Submit
-                    </button>
-                </a>
-
+            </div>
+            <div class="description">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus temporibus corporis repudiandae,
+                    consectetur nostrum nisi commodi placeat rerum molestias numquam nihil accusantium deleniti! Enim,
+                    nesciunt a quis amet hic officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+                    nemo accusantium tempora facere doloremque cum iusto, ut neque, fuga omnis libero laborum ullam. At
+                    dolorum qui atque labore illo dignissimos.</p>
+                <ul class="features">
+                    <li><i class="fa-solid fa-circle-check"></i>Supported Feature</li>
+                    <li><i class="fa-solid fa-circle-check"></i>Supported Feature</li>
+                    <li><i class="fa-solid fa-circle-check"></i>Supported Feature</li>
+                    <li><i class="fa-solid fa-circle-xmark"></i>Unsupported Feature</li>
+                    <li><i class="fa-solid fa-circle-xmark"></i>Unsupported Feature</li>
+                </ul>
+                <ul class="social">
+                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                </ul>
             </div>
         </div>
     </div>
-    <!-- partial:index.partial.html -->
+    <!--//
+            main pro  
+    //-->
 
+    <!--
+            - PRODUCT GRID
+    -->
+    <div class="product-main" style=" margin-bottom: 50px;">
+
+        <h2 class="title" style="margin-bottom: 25px; font-size: 25px;">Some suggestions:</h2>
+
+        <div class="product-grid">
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/jacket-3.jpg" alt="Mens Winter Leathers Jackets" width="300"
+                        class="product-img default">
+                    <img src="/assets/images/products/jacket-4.jpg" alt="Mens Winter Leathers Jackets" width="300"
+                        class="product-img hover">
+
+                    <p class="showcase-badge">15%</p>
+
+                    <div class="showcase-actions">
+
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+
+                    <a href="#" class="showcase-category">jacket</a>
+
+                    <a href="#">
+                        <h3 class="showcase-title">Mens Winter Leathers Jackets</h3>
+                    </a>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$75.00</del>
+                    </div>
+                </div>
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/shirt-1.jpg" alt="Pure Garment Dyed Cotton Shirt"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/shirt-2.jpg" alt="Pure Garment Dyed Cotton Shirt"
+                        class="product-img hover" width="300">
+
+                    <p class="showcase-badge angle black">sale</p>
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">shirt</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">Pure Garment Dyed Cotton Shirt</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price">$45.00</p>
+                        <del>$56.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/jacket-5.jpg" alt="MEN Yarn Fleece Full-Zip Jacket"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/jacket-6.jpg" alt="MEN Yarn Fleece Full-Zip Jacket"
+                        class="product-img hover" width="300">
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">Jacket</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">MEN Yarn Fleece Full-Zip Jacket</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$65.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/clothes-3.jpg" alt="Black Floral Wrap Midi Skirt"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/clothes-4.jpg" alt="Black Floral Wrap Midi Skirt"
+                        class="product-img hover" width="300">
+
+                    <p class="showcase-badge angle pink">new</p>
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">skirt</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">Black Floral Wrap Midi Skirt</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$35.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/shoe-2.jpg" alt="Casual Men's Brown shoes"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/shoe-2_1.jpg" alt="Casual Men's Brown shoes"
+                        class="product-img hover" width="300">
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">casual</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">Casual Men's Brown shoes</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$105.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/watch-3.jpg" alt="Pocket Watch Leather Pouch"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/watch-4.jpg" alt="Pocket Watch Leather Pouch"
+                        class="product-img hover" width="300">
+
+                    <p class="showcase-badge angle black">sale</p>
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">watches</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">Pocket Watch Leather Pouch</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$170.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/watch-1.jpg" alt="Smart watche Vital Plus"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/watch-2.jpg" alt="Smart watche Vital Plus"
+                        class="product-img hover" width="300">
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">watches</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">Smart watche Vital Plus</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$120.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/party-wear-1.jpg" alt="Womens Party Wear Shoes"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/party-wear-2.jpg" alt="Womens Party Wear Shoes"
+                        class="product-img hover" width="300">
+
+                    <p class="showcase-badge angle black">sale</p>
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">party wear</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">Womens Party Wear Shoes</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$30.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/jacket-1.jpg" alt="Mens Winter Leathers Jackets"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/jacket-2.jpg" alt="Mens Winter Leathers Jackets"
+                        class="product-img hover" width="300">
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">jacket</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">Mens Winter Leathers Jackets</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$45.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/sports-2.jpg" alt="Trekking & Running Shoes - black"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/sports-4.jpg" alt="Trekking & Running Shoes - black"
+                        class="product-img hover" width="300">
+
+                    <p class="showcase-badge angle black">sale</p>
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">sports</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">Trekking & Running Shoes - black</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$64.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/shoe-1.jpg" alt="Men's Leather Formal Wear shoes"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/shoe-1_1.jpg" alt="Men's Leather Formal Wear shoes"
+                        class="product-img hover" width="300">
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action add-to-cart">
+                            <ion-icon name="bag-add-outline"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">formal</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">Men's Leather Formal Wear shoes</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$65.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="showcase">
+
+                <div class="showcase-banner product-image">
+                    <img src="/assets/images/products/shorts-1.jpg" alt="Better Basics French Terry Sweatshorts"
+                        class="product-img default" width="300">
+                    <img src="/assets/images/products/shorts-2.jpg" alt="Better Basics French Terry Sweatshorts"
+                        class="product-img hover" width="300">
+
+                    <p class="showcase-badge angle black">sale</p>
+
+                    <div class="showcase-actions">
+                        <button class="btn-action">
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="repeat-outline"></ion-icon>
+                        </button>
+
+                        <button class="btn-action">
+                            <ion-icon name="bag-add-outline" class="add-to-cart"></ion-icon>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="showcase-content">
+                    <a href="#" class="showcase-category">shorts</a>
+
+                    <h3>
+                        <a href="#" class="showcase-title">Better Basics French Terry Sweatshorts</a>
+                    </h3>
+
+                    <div class="showcase-rating">
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                        <ion-icon name="star-outline"></ion-icon>
+                    </div>
+
+                    <div class="price-box">
+                        <p class="price product-price">$48.00</p>
+                        <del>$85.00</del>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!--
+            - PRODUCT GRID
+    -->
 
     <!--
         - FOOTER
@@ -259,40 +776,7 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            <div class="link-boxes">
-                <ul class="box">
-                    <li class="link_name">CATEGORIES</li>
-                    <li><a href="#">Fashion</a></li>
-                    <li><a href="#">Fashion</a></li>
-                    <li><a href="#">Cosmetic</a></li>
-                    <li><a href="#">Health</a></li>
-                </ul>
-                <ul class="box">
-                    <li class="link_name">PRODUCTS</li>
-                    <li><a href="#">Prices Drop</a></li>
-                    <li><a href="#">New Products</a></li>
-                    <li><a href="#">Best Sales</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-                <ul class="box">
-                    <li class="link_name">SERVICES</li>
-                    <li><a href="#">Prices Drop</a></li>
-                    <li><a href="#">New Products</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Best Sales</a></li>
-                </ul>
-                <ul class="box">
-                    <li class="link_name">CONTACT</li>
-                    <li><a href="#">Cairo , Egypt</a></li>
-                    <li><a href="#">111-386-012-6</a></li>
-                    <li><a href="#">Dev.ali@Gmail.Com</a></li>
-                </ul>
-                <ul class="box input-box">
-                    <li class="link_name">Subscribe</li>
-                    <li><input type="text" placeholder="Enter your email"></li>
-                    <li><input type="button" value="Subscribe"></li>
-                </ul>
-            </div>
+            
         </div>
         <div class="bottom-details">
             <div class="bottom_text">
@@ -305,22 +789,20 @@
         </div>
         <div class="foot">
 
-            <img src="./assets/images/payment.png" alt="payment method" class="payment-img">
+            <img src="/assets/images/payment.png" alt="payment method" class="payment-img">
 
             <p class="copyright">
                 Copyright &copy; <a href="#">Ahmed Sami</a> all rights reserved.
             </p>
 
     </footer>
+
     <!--
         - FOOTER
     -->
 
 
-    <!-- partial -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js'></script>
-    <script src='https://unpkg.com/vue-the-mask@0.11.1/dist/vue-the-mask.js'></script>
-    <script src="./script.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
     <!--
     - ionIcon link
@@ -339,7 +821,7 @@
     <!-- Custom Script -->
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/script.js"></script>
-    <script src="main.js"></script>
+
 </body>
 
 </html>
