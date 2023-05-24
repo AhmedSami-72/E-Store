@@ -71,9 +71,9 @@
             <p>don't have account? <a href="assets/sginup.html">sign up</a></p>
         </form>
     </div>
-    <!-------------------------------------------------------------------------------->
+    <!----// header section design //---->
 
-
+    <!-- send contact -->
     <div class="container">
         <div class="content">
             <div class="left-side">
@@ -121,9 +121,7 @@
             </div>
         </div>
     </div>
-
-
-
+        <!--// send contact //-->
 
 
     <!-- End of map -->
@@ -131,8 +129,6 @@
         <h1>Google Maps Example</h1>
         <div id="map"></div>
     </div>
-    
-
 
 
 
@@ -214,13 +210,6 @@
 
 
 
-
-
-
-
-
-
-
     <!-- End of map -->
     <script>
         function initMap() {
@@ -248,7 +237,6 @@
 
 
     <!-- smtp js -->
-
     <script src="https://smtpjs.com/v3/smtp.js"> </script>
     <script>
         function SendEmail() {
@@ -271,6 +259,75 @@
 
         }
     </script>
+    <!--// smtp js //-->
+
+
+    <script>
+        // search-btn
+        let searchBtn = document.querySelector("#search-btn");
+        let searchForm = document.querySelector(".search-form");
+        let loginForm = document.querySelector(".login-form");
+        let menuBar = document.querySelector("#menu-bar");
+        let amenu = document.querySelector(".navbar");
+        let vidBtn = document.querySelectorAll(".video-btn");
+
+        function showbar() {
+            searchBtn.classList.toggle("fa-times");
+            searchForm.classList.toggle("active");
+        }
+
+        function showform() {
+            loginForm.classList.add("active");
+        }
+
+        function hideform() {
+            loginForm.classList.remove("active");
+        }
+
+        function showmenu() {
+            menuBar.classList.toggle("fa-times");
+            amenu.classList.toggle("active");
+        }
+        // search-btn
+
+        // dark mode
+        const toggle = document.getElementById("scroll-to-top");
+        const body = document.querySelector("body");
+
+        toggle.addEventListener("click", function () {
+            this.classList.toggle("bi-moon");
+            if (this.classList.toggle("bi-brightness-high-fill")) {
+                body.style.background = "#d5eaec";
+                body.style.color = "black";
+                body.style.transition = "0.5s";
+            } else {
+                body.style.background = "#a1a1a1";
+                body.style.color = 'white';
+                body.style.transition = "0.5s";
+            }
+        });
+        // dark mode //
+        // scroll
+        let scrollToTopButton = document.getElementById("scroll-to-top-button");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                scrollToTopButton.style.display = "block";
+            } else {
+                scrollToTopButton.style.display = "none";
+            }
+        });
+
+        scrollToTopButton.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: "smooth",
+            });
+        });
+//// scroll ////
+    </script>
+
 
     <!--
     - ionIcon link
@@ -288,7 +345,6 @@
     </script>
     <!-- Custom Script -->
     <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/script.js"></script>
 </body>
 
 </html>

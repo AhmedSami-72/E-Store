@@ -23,7 +23,7 @@
 
 </head>
 
-<body>
+<body style="background-color: #d5eaec;">
     <!-- dark mode  -->
     <i class="bi bi-brightness-high-fill" id="scroll-to-top"></i>
     <!--// dark mode  //-->
@@ -54,6 +54,7 @@
             <label for="search-bar" class="fas fa-search"></label>
         </form>
     </header>
+    <!----// header section design //---->
 
 
     <div class="login-form">
@@ -178,6 +179,75 @@
         - FOOTER
     -->
 
+    <script>
+        // search-btn
+        let searchBtn = document.querySelector("#search-btn");
+        let searchForm = document.querySelector(".search-form");
+        let loginForm = document.querySelector(".login-form");
+        let menuBar = document.querySelector("#menu-bar");
+        let amenu = document.querySelector(".navbar");
+        let vidBtn = document.querySelectorAll(".video-btn");
+
+        function showbar() {
+            searchBtn.classList.toggle("fa-times");
+            searchForm.classList.toggle("active");
+        }
+
+        function showform() {
+            loginForm.classList.add("active");
+        }
+
+        function hideform() {
+            loginForm.classList.remove("active");
+        }
+
+        function showmenu() {
+            menuBar.classList.toggle("fa-times");
+            amenu.classList.toggle("active");
+        }
+        // search-btn
+
+        // dark mode
+        const toggle = document.getElementById("scroll-to-top");
+        const body = document.querySelector("body");
+        const head = document.querySelector("header");
+
+        toggle.addEventListener("click", function () {
+            this.classList.toggle("bi-moon");
+            if (this.classList.toggle("bi-brightness-high-fill")) {
+                body.style.background = "#d5eaec";
+                head.style.background = "#d5eaec";
+                body.style.color = "black";
+                body.style.transition = "0.5s";
+            } else {
+                body.style.background = "#a1a1a1";
+                body.style.color = 'white';
+                head.style.background = "#a1a1a1";
+                body.style.transition = "0.5s";
+            }
+        });
+        // dark mode //
+        // scroll
+let scrollToTopButton = document.getElementById("scroll-to-top-button");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        scrollToTopButton.style.display = "block";
+    } else {
+        scrollToTopButton.style.display = "none";
+    }
+});
+
+scrollToTopButton.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+    });
+});
+//// scroll ////
+    </script>
+
 
     <!--
     - ionIcon link
@@ -195,7 +265,5 @@
     </script>
     <!-- Custom Script -->
     <script src="/assets/js/main.js"></script>
-    <script src="/assets/js/script.js"></script>
 </body>
-
 </html>

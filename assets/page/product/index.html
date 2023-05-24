@@ -21,9 +21,10 @@
     <!-- StyleSheet -->
     <link rel="stylesheet" href="/assets/css/script.css">
     <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="style.css" />
 </head>
 
-<body style="background-color: #d5eaec;">
+<body>
 
     <!-- dark mode  -->
     <i class="bi bi-brightness-high-fill" id="scroll-to-top"></i>
@@ -40,7 +41,7 @@
         <nav class="navbar">
             <a href="/index.html">home</a>
             <a href="/assets/page/about/index.html">About</a>
-            <a href="/assets/page/shop/index.html" class="active">Shop</a>
+            <a href="/assets/page/shop/index.html">Shop</a>
             <a href="/assets/page/blog/index.html">Blog</a>
             <a href="/assets/page/contact/index.html">contact</a>
         </nav>
@@ -55,13 +56,70 @@
             <label for="search-bar" class="fas fa-search"></label>
         </form>
     </header>
-    <!----// header section design //---->
 
+    <!--
+            main pro  
+    -->
+    <div class="container">
+        <div class="box">
+            <div class="images">
+                <div class="img-holder active">
+                    <img src="/assets/images/products/sports-1.jpg">
+                </div>
+                <div class="img-holder">
+                    <img src="/assets/images/products/sports-2.jpg">
+                </div>
+                <div class="img-holder">
+                    <img src="/assets/images/products/sports-3.jpg">
+                </div>
+                <div class="img-holder">
+                    <img src="/assets/images/products/sports-4.jpg">
+                </div>
+            </div>
+            <div class="basic-info">
+                <h1>Headphone</h1>
+                <div class="rate">
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                    <i class="filled fas fa-star"></i>
+                </div>
+                <span>$250</span>
+                <div class="options">
+                    <a href="/assets/page/paying off/index.html">Buy It Now</a>
+                    <!-- <a href="#">Add to Cart</a> -->
+                </div>
+            </div>
+            <div class="description">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus temporibus corporis repudiandae,
+                    consectetur nostrum nisi commodi placeat rerum molestias numquam nihil accusantium deleniti! Enim,
+                    nesciunt a quis amet hic officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+                    nemo accusantium tempora facere doloremque cum iusto, ut neque, fuga omnis libero laborum ullam. At
+                    dolorum qui atque labore illo dignissimos.</p>
+                <ul class="features">
+                    <li><i class="fa-solid fa-circle-check"></i>Supported Feature</li>
+                    <li><i class="fa-solid fa-circle-check"></i>Supported Feature</li>
+                    <li><i class="fa-solid fa-circle-check"></i>Supported Feature</li>
+                    <li><i class="fa-solid fa-circle-xmark"></i>Unsupported Feature</li>
+                    <li><i class="fa-solid fa-circle-xmark"></i>Unsupported Feature</li>
+                </ul>
+                <ul class="social">
+                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--//
+            main pro  
+    //-->
 
-        <!--
+    <!--
             - PRODUCT GRID
-        -->
-    <div class="product-main" style=" margin-bottom: 50px; margin-top: 150px;">
+    -->
+    <div class="product-main" style=" margin-bottom: 50px;">
 
         <h2 class="title" style="margin-bottom: 25px; font-size: 25px;">Some suggestions:</h2>
 
@@ -700,7 +758,6 @@
             - PRODUCT GRID
     -->
 
-
     <!--
         - FOOTER
     -->
@@ -770,12 +827,27 @@
             <p class="copyright">
                 Copyright &copy; <a href="#">Ahmed Sami</a> all rights reserved.
             </p>
+
     </footer>
+
     <!--
         - FOOTER
     -->
 
-    
+
+    <!-- // function img -->
+    <script>
+        const imageContainer = document.querySelector(".img-holder.active img");
+        const imageList = document.querySelectorAll(".img-holder img");
+
+        for (let i = 0; i < imageList.length; i++) {
+            imageList[i].addEventListener("click", function (e) {
+                const imgSrc = e.target.getAttribute("src");
+                imageContainer.setAttribute("src", imgSrc);
+            });
+        }
+    </script>
+
     <script>
         // search-btn
         let searchBtn = document.querySelector("#search-btn");

@@ -120,8 +120,6 @@ html {
 
 /*-----------------------------------*\
 
-
-
 /* dark mode */
 #scroll-to-top {
     position: fixed;
@@ -149,15 +147,9 @@ html {
     opacity: 1;
 }
 
-
-
-
 .light{
     color: white;
 }
-
-
-
 /*// dark mode //*/
 
 
@@ -180,11 +172,8 @@ html {
     transition: opacity 0.2s ease-in-out;
 }
 
-
 #scroll-to-top-button:hover {
     opacity: 1;
 }
-
-
 /*// scroll //*/
 
