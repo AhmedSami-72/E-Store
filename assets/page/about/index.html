@@ -36,7 +36,11 @@
     <!-- --header section design---->
     <header>
         <div id="menu-bar" class="fas fa-bars" onclick="showmenu()"></div>
+<<<<<<< HEAD
         <a href="/index.html" class="logo"><span>E</span>-<span>S</span>tore</a>
+=======
+        <a href="" class="logo"><span>E</span>-<span>S</span>tore</a>
+>>>>>>> e5928ca (first commit)
         <nav class="navbar">
             <a href="/index.html">home</a>
             <a href="/assets/page/about/index.html" class="active">About</a>
@@ -47,26 +51,45 @@
         <div class="icon">
             <i class="fas fa-search" onclick="showbar()" id="search-btn"></i>
             <i class="fas fa-user" onclick="showform()"></i>
+<<<<<<< HEAD
             <i class="ri-shopping-cart-line"><span>2</span></i>
         </div>
         <form action="" class="search-form">
             <input type="search" id="search-bar" placeholder="What you looking for...">
+=======
+            <i class="ri-shopping-cart-line cart-icon" <a href="#"><span class="cart-count">0</span></a></i>
+        </div>
+        <!--   end of cart modal -->
+        <form action="" class="search-form">
+            <input type="search" id="search-bar" onkeyup="search ()" placeholder="What you looking for...">
+>>>>>>> e5928ca (first commit)
             <label for="search-bar" class="fas fa-search"></label>
         </form>
     </header>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e5928ca (first commit)
     <div class="login-form">
         <i class="fas fa-times" id="form-close" onclick="hideform()"></i>
         <form action="">
             <h3>login</h3>
             <input type="email" class="box" placeholder="Enter your email">
             <input type="password" class="box" placeholder="Enter your password">
+<<<<<<< HEAD
             <input type="submit" value="login now" class="btn">
             <input type="checkbox" id="remember">
             <label for="remmember"> remember me</label>
             <p>forget password? <a href="index.html">click here</a></p>
             <p>don't have account? <a href="assets/sginup.html">sign up</a></p>
+=======
+            <a href="assets/page/sign up/index.html"><input type="submit" value="login now" class="btn"></a>
+            <input type="checkbox" id="remember">
+            <label for="remmember"> remember me</label>
+            <p>forget password? <a href="index.html">click here</a></p>
+            <p>don't have account? <a href="assets/page/sign up/index.html">sign up</a></p>
+>>>>>>> e5928ca (first commit)
         </form>
     </div>
     <!-- --header section design---->
@@ -179,6 +202,64 @@
     -->
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+    <script>
+        // search-btn
+        let searchBtn = document.querySelector("#search-btn");
+        let searchForm = document.querySelector(".search-form");
+        let loginForm = document.querySelector(".login-form");
+        let menuBar = document.querySelector("#menu-bar");
+        let amenu = document.querySelector(".navbar");
+        let vidBtn = document.querySelectorAll(".video-btn");
+
+        function showbar() {
+            searchBtn.classList.toggle("fa-times");
+            searchForm.classList.toggle("active");
+        }
+
+        function showform() {
+            loginForm.classList.add("active");
+        }
+
+        function hideform() {
+            loginForm.classList.remove("active");
+        }
+
+        function showmenu() {
+            menuBar.classList.toggle("fa-times");
+            amenu.classList.toggle("active");
+        }
+        // search-btn
+
+        // dark mode
+        const toggle = document.getElementById("scroll-to-top");
+        const body = document.querySelector("body");
+
+        toggle.addEventListener("click", function () {
+            this.classList.toggle("bi-moon");
+            if (this.classList.toggle("bi-brightness-high-fill")) {
+                body.style.background = "#333";
+                body.style.color = "black";
+                body.style.transition = "0.2s";
+            } else {
+                body.style.background = "#a1a1a1";
+                body.style.color = 'white';
+                body.style.transition = "0.2s";
+            }
+        });
+        // dark mode //
+    </script>
+
+
+
+
+
+>>>>>>> e5928ca (first commit)
     <!--
     - ionIcon link
     -->
@@ -194,8 +275,13 @@
         });
     </script>
     <!-- Custom Script -->
+<<<<<<< HEAD
     <script src="/assets/js/main.js"></script>
     <script src="/assets/js/script.js"></script>
+=======
+    <!-- <script src="/assets/js/main.js"></script> -->
+    <!-- <script src="main.js"></script> -->
+>>>>>>> e5928ca (first commit)
 </body>
 
 </html>
